@@ -1,0 +1,47 @@
+@import '../../variables.scss';
+
+.home-hero {
+    width: 100%;
+    height: 15rem;
+    margin-bottom: 2rem;
+}
+
+.rents {
+    background-color: $secondary-color;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 2rem;
+    padding: 2rem;
+    border-radius: $border-radius;
+
+    article {
+        width: 100%;
+        aspect-ratio: 1/1;
+        position: relative;
+        border-radius: calc($border-radius - 5px);
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+        }
+
+        .title-container {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 50px 10px 10px 10px;
+            background-image: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 1));
+            
+            p {
+                color: #fff;
+                font-weight: 500;
+                margin-bottom: 0rem;
+                font-size: 13px;
+            }
+        }
+    }
+}
