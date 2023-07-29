@@ -1,0 +1,14 @@
+$primary-color: #FF6060;
+$secondary-color: #F2F2F2;
+$border-radius: 13px;
+$header-height: 5rem;
+$footer-height: 8.5rem;
+// 4rem is the sum of the top and bottom padding of the main element
+$fullfilled-height: calc(100vh - $header-height - $footer-height - 4rem);
+
+@mixin flex-content-between($color: $primary-color) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: $color;
+}

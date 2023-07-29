@@ -1,0 +1,59 @@
+@import './variables.scss';
+
+.container {
+    padding: 0 3rem;
+}
+
+header {
+    height: $header-height;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .branding {
+        width: 100px;
+    }
+
+    nav {
+        display: flex;
+        align-items: center;
+
+        ul {
+            display: flex;
+            align-items: center;
+
+            li {
+                margin-left: 1rem;
+                color: $primary-color;
+                
+                &.active {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
+
+main {
+    padding: 2rem 0;
+}
+
+footer {
+    height: $footer-height;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: #000;
+    color: #fff;
+    gap: 1.5rem;
+    padding: 1rem;
+
+    .branding {
+        width: 100px;
+    }
+
+    p {
+        margin: 0;
+    }
+}
