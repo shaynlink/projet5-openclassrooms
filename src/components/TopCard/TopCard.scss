@@ -26,3 +26,13 @@
         color: #fff;
     }
 }
+
+@media only screen and (max-width: 768px) {
+    .top-card {
+        padding: 0 1rem;
+
+        h1 {
+            font-size: 1.4rem;
+        }
+    }
+}

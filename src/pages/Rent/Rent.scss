@@ -5,10 +5,14 @@
     height: 25rem;
 }
 
-.primary-information {
-    margin-top: 2rem;
-    @include flex-content-between();
+.section-information {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    margin-top: 1.5rem;
+    color: $primary-color;
 
+    
     .quick-information {
         h1, h5 {
             margin-bottom: .1rem;
@@ -17,6 +21,7 @@
 
         h1 {
             font-size: 1.5rem;
+            margin-top: 0;
         }
 
         h5 {
@@ -26,8 +31,10 @@
     }
 
     .host {
-        @include flex-content-between();
+        display: flex;
+        align-items: center;
         gap: .5rem;
+        justify-content: flex-end;
 
         img {
             width: 3rem;
@@ -42,15 +49,9 @@
             width: min-content;
         }
     }
-}
-
-.secondary-information {
-    margin-top: 2rem;
-    @include flex-content-between();
-
+    
     .tags {
         display: flex;
-        justify-content: center;
         align-items: center;
         gap: .3rem;
 
@@ -66,10 +67,10 @@
             align-items: center;
         }
     }
-
+    
     .rate {
         display: flex;
-        justify-content: center;
+        justify-content: flex-end;
         align-items: center;
         gap: .5rem;
 
@@ -86,4 +87,40 @@
     justify-content: space-between;
     align-items: flex-start;
     gap: 4rem;    
+}
+
+@media only screen and (max-width: 768px) {
+    .rent-hero {
+        height: 20rem;
+    }
+
+    .section-information {
+        grid-template-rows: repeat(3, 1fr);
+
+        .quick-information {
+            grid-column: 1 / 3;
+            grid-row: 1 / 2;
+        }
+
+        .tags {
+            grid-column: 1 / 3;
+            grid-row: 2 / 3;
+        }
+
+        .rate {
+            grid-column: 1 / 2;
+            grid-row: 3 / 4;
+            justify-content: flex-start;
+        }
+
+        .host {
+            grid-column: 2 / 3;
+            grid-row: 3 / 4;
+        }
+    }
+
+    .additional-information {
+        flex-direction: column;
+        gap: 0;
+    }
 }

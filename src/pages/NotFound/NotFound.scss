@@ -24,3 +24,18 @@
         text-decoration: underline;
     }
 }
+
+@media only screen and (max-width: 768px) {
+    .not-found-layout {
+        height: unset;
+        padding: 5rem 0;
+
+        h1 {
+            font-size: 8rem;
+        }
+        
+        h2 {
+            text-align: center;
+        }
+    }
+}

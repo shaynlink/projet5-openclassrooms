@@ -11,3 +11,9 @@
         margin-bottom: 1rem;
     }
 }
+
+@media only screen and (max-width: 768px) {
+    .dropdown-wrapper {
+        padding: 0;
+    }
+}

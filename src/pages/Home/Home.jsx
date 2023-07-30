@@ -6,7 +6,7 @@ import fetcher from '../../lib/fetcher';
 import './Home.scss';
 
 export default function Home() {
-    const { data: rents, error } = useSWR('http://localhost:3030/rents?limit=6', fetcher, {
+    const { data: rents, error } = useSWR('http://localhost:3030/rents', fetcher, {
         revalidateOnFocus: false
     });
 

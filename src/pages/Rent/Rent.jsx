@@ -1,5 +1,5 @@
-import { Fragment } from 'react';
-import { useMatches, redirect } from 'react-router-dom';
+import { Fragment, useEffect } from 'react';
+import { useMatches, useNavigate } from 'react-router-dom';
 import useSWR from 'swr';
 import fetcher from '../../lib/fetcher';
 import Caroussel from '../../components/Caroussel/Caroussel';
@@ -10,12 +10,19 @@ import './Rent.scss';
 
 export default function Rent() {
     const matches = useMatches();
+    const navigate = useNavigate();
     const match = matches[0];
     const id = match.params.id;
     const { data: rent, error } = useSWR(`http://localhost:3030/rents/${id}`, fetcher);
     
+    useEffect(() => {        
+        if (error) {
+            navigate('/not-found');
+        }
+    }, [error, navigate]);
+
     if (error) {
-        return redirect('/not-found');
+        return <div>Erreur lors du chargements de la location</div>
     }
 
     if (!rent) return <div>Chargements de la location</div>
@@ -39,7 +46,7 @@ export default function Rent() {
                 />
             </div>
 
-            <div className="primary-information">
+            <section className="section-information">
                 <div className="quick-information">
                     <h1>{rent.title}</h1>
                     <h5>{rent.location}</h5>
@@ -50,9 +57,7 @@ export default function Rent() {
                     {/* eslint-disable-next-line jsx-a11y/img-redundant-alt */}
                     <img src={rent.host.picture} alt={`Photo de profil de ${rent.host.name}`} />
                 </div>
-            </div>
 
-            <div className="secondary-information">
                 <div className="tags">
                     {rent.tags.map((tag) => (
                         <div className="tag" key={tag}>
@@ -64,7 +69,8 @@ export default function Rent() {
                 <div className="rate">
                     {getRating()}
                 </div>
-            </div>
+            </section>
+
 
             <div className="additional-information">
                 <Dropdown

@@ -5,7 +5,7 @@ import './Caroussel.scss';
 
 export default function Caroussel({ images, alt = '' }) {
     const [index, setIndex] = useState(0);
-    const isMultiple = images.length;
+    const isMultiple = images.length > 1;
 
     function getCarousselPosition(i) {
         if (i === index) return 'current';

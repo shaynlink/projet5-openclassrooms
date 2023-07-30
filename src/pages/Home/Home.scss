@@ -45,3 +45,18 @@
         }
     }
 }
+
+@media only screen and (max-width: 768px) {
+    .home-hero {
+        height: 9rem;
+    }
+
+    .rents {
+        grid-template-columns: 1fr;
+        padding: 0;
+
+        article {
+            aspect-ratio: 16/9;
+        }
+    }
+}
